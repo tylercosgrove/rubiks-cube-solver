@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>how to use cube solver</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      * {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      ol > li {
+        text-align: left;
+        margin-bottom: 8px;
+      }
+
+      ul > li {
+        text-align: left;
+        width: fit-content;
+      }
+
+      div > p {
+        text-align: left;
+      }
+
+      #cubeAnimation {
+        width: 250px;
+        height: fit-content;
+        background-color: #faf9f7;
+      }
+
+      #cubeContainer {
+        width: 100%;
+        padding-inline: 8px;
+        padding-top: 8px;
+        border: 1px solid #edebe6;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+        gap: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>rubik's cube solver</h1>
+    <h3>instructions</h3>
+    <a href="/">back</a>
+    <div style="width: 650px; margin: auto">
+      <p>to use the cube solver, make sure you have access to the webcam and javascript is enabled</p>
+      <p>also, it will work best on desktop</p>
+      <br />
+      <p style="font-weight: bold">steps to use the program</p>
+      <ol>
+        <li>wait for model to load (displayed at the top of the page)</li>
+        <li>position the cube so one side is facing the camera</li>
+        <li>above the webcam video, you should see the colors of the stickers on the left</li>
+        <li>if the colors match the cube, press SPACE to save it (<a href="#wrongColors">the colors don't match?</a>)</li>
+        <li>
+          save the rest of the faces IN THIS ORDER: (rotations can be written as <span style="font-style: italic">y y y x x2</span>)
+          <ul>
+            <li>turn 90&deg; clockwise about the y axis</li>
+            <li>turn 90&deg; clockwise about the y axis</li>
+            <li>turn 90&deg; clockwise about the y axis</li>
+            <li>turn 90&deg; clockwise about the x axis</li>
+            <li>turn 180&deg; about the x axis</li>
+            <li>if this is confusing, copy what that animation below does</li>
+          </ul>
+        </li>
+      </ol>
+      <div id="cubeContainer">
+        <div style="width: 75%">
+          <h3>HOW TO SCAN IN THE CUBE</h3>
+          <p>The left side of the cube (in this rendering) faces the camera, so the faces would be scanned in this order:</p>
+          <ul style="width: fit-content">
+            <li style="background-color: #438de8">Blue</li>
+            <li style="background-color: #d63527">Red</li>
+            <li style="background-color: #51e843">Green</li>
+            <li style="background-color: #fcba03">Orange</li>
+            <li style="background-color: #f5f4f2">White</li>
+            <li style="background-color: #f5eb33">Yellow</li>
+          </ul>
+          <p>This order is only if the Blue side is shown first; any color can be shown as long as the rotations remain the same.</p>
+        </div>
+        <div style="width: fit-content; height: fit-content">
+          <div id="cubeAnimation" class="roofpig" data-config="alg=y y y x x2|colored=*/m|colors=F:b B:g U:y D:w R:r L:o|speed=800|hover=none"></div>
+          <p style="font-size: 12px; font-style: italic; text-align: center; margin-top: 4px">
+            animation created using <a href="https://github.com/larspetrus/Roofpig" target="_blank">Roofpig</a>
+          </p>
+        </div>
+      </div>
+      <br />
+      <ol start="6">
+        <li>once you have scanned in all 6 faces, a 3D rendering will display below</li>
+        <li>if the rendering matches your cube, click the 'solve' button</li>
+        <li>
+          hold your cube so the first face you scanned in is facing you, and solve your cube
+          <a href="https://ruwix.com/the-rubiks-cube/notation/" target="_blank">according to the notation</a>
+        </li>
+      </ol>
+      <br /><br /><br />
+      <p style="font-weight: bold" id="wrongColors">my colors are not being read properly?</p>
+      <p>there are many reasons for why the colors are not being read properly:</p>
+      <ul>
+        <li>you have unorthodox sticker colors</li>
+        <li>you are in weird lighting</li>
+        <li>etc.</li>
+      </ul>
+      <p>if this is the case, click <button>calibrate colors</button> to start updating the colors</p>
+      <p>when prompted to enter each color, show the face with that color in the center (red face = face with red center) and press SPACE</p>
+      <p>after entering each color, your colors should be calibrated!</p>
+      <br /><br /><br />
+      <p style="font-weight: bold" id="wrongColors">the program stopped scanning faces?</p>
+      <p>this can sometimes happen, just refresh the page and it should work again</p>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="roofpig_and_three.min.js"></script>
+  </body>
+</html>

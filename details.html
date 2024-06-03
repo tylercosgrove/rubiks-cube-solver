@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>how cube solver works</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      * {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      ol > li {
+        text-align: left;
+        margin-bottom: 8px;
+      }
+
+      li > ul > li {
+        text-align: left;
+      }
+
+      ul > li {
+        text-align: left;
+        width: fit-content;
+      }
+
+      h3 {
+        margin-top: -20px;
+      }
+
+      div > p {
+        text-align: left;
+      }
+
+      ol > li {
+        text-align: left;
+        margin-bottom: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>rubik's cube solver</h1>
+    <h3>how it works</h3>
+    <a href="/">back</a>
+    <div style="width: 650px; margin: auto">
+      <p>the idea for this came from <a href="https://www.youtube.com/watch?v=VaW1dmqRE0o" target="_blank">this</a> old video of Andrej Karpathy</p>
+      <br />
+      <p>basics of how it works:</p>
+      <ol>
+        <li><a href="https://www.tensorflow.org/js" target="_blank">tfjs</a> model finds where the cube is in the frame</li>
+        <li><a href="https://docs.opencv.org/4.x/d0/d84/tutorial_js_usage.html" target="_blank">opencv.js</a> extracts locations and colors of each sticker</li>
+        <li>solves cube using simplified version of <a href="https://kociemba.org/twophase.htm" target="_blank">Herbert Kociemba's Two Phase algorithm</a></li>
+      </ol>
+      <p>you can find the source code <a href="">here</a></p>
+    </div>
+  </body>
+</html>
